@@ -8,7 +8,10 @@
 
 class Geometry {
 public:
+    // For Phong Model
     QColor c;
+    int n;
+    double kd, ks;
 
 public:
     Geometry();

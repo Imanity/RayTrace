@@ -9,7 +9,7 @@ Plane::Plane() {
 Plane::Plane(Vec3 v, double d_) {
     normal = v.normalize();
     d = d_;
-    pos = normal.multiply(d);
+    pos = normal.multiply(d).negate();
 }
 
 IntersectResult Plane::intersect(Ray r) {
@@ -24,5 +24,9 @@ IntersectResult Plane::intersect(Ray r) {
     res.t = abs(b / a);
     res.pos = r.getPoint(res.t);
     res.color = c;
+    res.normal = normal;
+    res.n = n;
+    res.kd = kd;
+    res.ks = ks;
     return res;
 }

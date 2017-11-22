@@ -1,5 +1,5 @@
 #include "perspectivecamera.h"
-#include <QDebug>
+
 PerspectiveCamera::PerspectiveCamera() {
     eye = Vec3(0, 0, 0);
     up = Vec3(0, 0, 1);

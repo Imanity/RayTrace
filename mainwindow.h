@@ -4,12 +4,18 @@
 #include <QMainWindow>
 #include <QPaintEvent>
 #include <QPainter>
+#include <QDebug>
 
 #include "raytracer.h"
 #include "perspectivecamera.h"
+#include "orthogonalcamera.h"
+#include "pointlight.h"
 
 #define WIDTH 600
 #define HEIGHT 600
+
+#define PERSPECTIVE_CAMERA 0
+#define ORTHOGONAL_CAMERA 1
 
 namespace Ui {
 class MainWindow;
@@ -22,7 +28,8 @@ private:
     QColor **img;
     RayTracer rt;
     Scene scene;
-    PerspectiveCamera camera;
+    PerspectiveCamera p_camera;
+    OrthogonalCamera o_camera;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -34,12 +41,22 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *e);
+    void keyReleaseEvent(QKeyEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
+
+private:
+    void goAhead();
+    void goBack();
+    void turnLeft();
+    void turnRight();
 
 private:
     Ui::MainWindow *ui;
 
-    double a;
-    void mouseReleaseEvent(QMouseEvent *e);
+    int camera_type;
+    Vec3 camera_pos, camera_forward, camera_up;
+    double speed;
+    double angle;
 };
 
 #endif // MAINWINDOW_H

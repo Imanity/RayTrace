@@ -13,7 +13,11 @@ public:
     RayTracer();
 
 public:
-    QColor rayTrace(Scene &s, Ray &r);
+    double eps = 0.01;
+    QColor rayTrace(Scene &s, Ray r, int depth);
+
+private:
+    bool shadowTest(Scene &s, Ray r, Vec3 pos);
 };
 
 #endif // RAYTRACER_H

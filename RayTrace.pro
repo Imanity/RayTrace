@@ -32,7 +32,12 @@ SOURCES += \
     plane.cpp \
     scene.cpp \
     geometry.cpp \
-    raytracer.cpp
+    raytracer.cpp \
+    sphere.cpp \
+    orthogonalcamera.cpp \
+    utility.cpp \
+    pointlight.cpp \
+    chesstexture.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +48,11 @@ HEADERS += \
     utility.h \
     scene.h \
     geometry.h \
-    raytracer.h
+    raytracer.h \
+    sphere.h \
+    orthogonalcamera.h \
+    pointlight.h \
+    chesstexture.h
 
 FORMS += \
         mainwindow.ui
