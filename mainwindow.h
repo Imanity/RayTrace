@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPaintEvent>
 #include <QPainter>
+#include <QTimer>
 #include <QDebug>
 
 #include "raytracer.h"

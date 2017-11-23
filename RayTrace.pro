@@ -37,7 +37,9 @@ SOURCES += \
     orthogonalcamera.cpp \
     utility.cpp \
     pointlight.cpp \
-    chesstexture.cpp
+    chesstexture.cpp \
+    objloader.cpp \
+    aabb.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -52,7 +54,9 @@ HEADERS += \
     sphere.h \
     orthogonalcamera.h \
     pointlight.h \
-    chesstexture.h
+    chesstexture.h \
+    objloader.h \
+    aabb.h
 
 FORMS += \
         mainwindow.ui

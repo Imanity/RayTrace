@@ -5,6 +5,7 @@
 
 #include "utility.h"
 #include "ray.h"
+#include "aabb.h"
 
 class Geometry {
 public:
@@ -12,11 +13,13 @@ public:
     QColor c;
     int n;
     double kd, ks;
+    AABB aabb;
 
 public:
     Geometry();
 
     void setColor(int r, int g, int b);
+    virtual void setAABB();
     virtual IntersectResult intersect(Ray /*r*/);
 };
 

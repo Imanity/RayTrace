@@ -19,6 +19,7 @@ public:
     Sphere(Vec3 c, double r);
 
     IntersectResult intersect(Ray r);
+    void setAABB();
 };
 
 #endif // SPHERE_H

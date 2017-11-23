@@ -50,3 +50,7 @@ IntersectResult Sphere::intersect(Ray r) {
     res.ks = ks;
     return res;
 }
+
+void Sphere::setAABB() {
+    aabb = AABB(center.subtract(Vec3(radius, radius, radius)), center.add(Vec3(radius, radius, radius)));
+}

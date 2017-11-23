@@ -56,10 +56,18 @@ void MainWindow::keyReleaseEvent(QKeyEvent *e) {
 }
 
 void MainWindow::goAhead() {
+    if (scene.isCollided(camera_pos.add(camera_forward.multiply(speed)))) {
+        qDebug() << "stuck";
+        return;
+    }
     camera_pos = camera_pos.add(camera_forward.multiply(speed));
 }
 
 void MainWindow::goBack() {
+    if (scene.isCollided(camera_pos.add(camera_forward.multiply(speed).negate()))) {
+        qDebug() << "stuck";
+        return;
+    }
     camera_pos = camera_pos.add(camera_forward.multiply(speed).negate());
 }
 
@@ -169,8 +177,21 @@ void MainWindow::initializeScene() {
         spheres[i].n = 10;
         spheres[i].kd = 0.7;
         spheres[i].ks = 0.5;
+        spheres[i].setAABB();
         scene.addSphere(spheres[i]);
     }
+
+    // Add Obj Model
+    // Too stuck, forget it
+    /*
+    ObjLoader objModel("E:\\diamond.obj", Vec3(3, 3, 1.56), 2);
+    objModel.n = 10;
+    objModel.kd = 1;
+    objModel.ks = 0;
+    objModel.setAABB();
+    objModel.setColor(0, 0, 200);
+    scene.addObj(objModel);
+    */
 
     // Add Point Light
     scene.light = PointLight(QColor(255, 255, 255), Vec3(3, 0, 10));
