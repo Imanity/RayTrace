@@ -11,4 +11,5 @@ A ray tracing program for Computer Graphic Course Assignment
 * 纹理映射: 网格纹理
 * 碰撞检测: aabb算法
 * 投影模式: 透视投影/正交投影
+
 ![cornellbox](/gallary/cornellbox.png)
